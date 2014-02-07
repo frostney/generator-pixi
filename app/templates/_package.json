@@ -1,5 +1,12 @@
 {
-  "name": "package",
-  "version": "0.0.0",
-  "dependencies": {}
+  "name": "<%= projectName %>",
+  "version": "<%= version %>",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "0.4.x",
+    "grunt-contrib-uglify": "~0.2.5",
+    "grunt-contrib-clean": "~0.5.0",
+    "matchdep": "~0.3.0",
+    "grunt-amd-tamer": "~0.1.7"
+  }
 }
