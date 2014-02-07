@@ -23,25 +23,30 @@ PixiGenerator.prototype.askFor = function askFor() {
   console.log(this.yeoman);
 
   var prompts = [{
-    type: 'confirm',
-    name: 'someOption',
-    message: 'Would you like to enable this option?',
-    default: true
+    name: 'projectName',
+    message: 'What do you want to call your project?',
+    'default': 'pixi-project'
+  }, {
+    name: 'version',
+    message: 'The default version of the project',
+    'default': '1.0.0'
   }];
 
-  this.prompt(prompts, function (props) {
-    this.someOption = props.someOption;
+  this.prompt(prompts, function(props) {
+    this.projectName = props.projectName;
+    this.version = props.version;
 
     cb();
   }.bind(this));
 };
 
 PixiGenerator.prototype.app = function app() {
-  this.mkdir('app');
-  this.mkdir('app/templates');
-
   this.copy('_package.json', 'package.json');
   this.copy('_bower.json', 'bower.json');
+  this.copy('gruntfile.js', 'gruntfile.js');
+  this.copy('_index.html', 'index.html');
+  
+  this.directory('files', '.');
 };
 
 PixiGenerator.prototype.projectfiles = function projectfiles() {
